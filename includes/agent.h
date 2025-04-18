@@ -9,7 +9,7 @@ typedef struct Ambient Ambient;
 void announce_arrival();
 
 
-struct Agent* create_agent(int environment_size);
+struct Agent* create_environment(int environment_size);
 
 /*
  * Description: Creates obstacles, blocking the agent's passage.
@@ -27,17 +27,17 @@ void create_objective(const int environment_size, char (*environment)[environmen
  * Output: None.
  * Note: It is recommended to use this function after generating the obstacles.
  */
-void choose_start_position(const int environment_size, int *x_position, int *y_position, char (*environment)[environment_size + 1]);
+void choose_start_position(Ambient* ambient);
 
 
-void release_agent(struct Agent *agent);
+void release_agent(Ambient* ambient);
 
 /*
  * Description: Shows an n x n environment for your agent to move around in.
  * Input: Receives the size of the environment and the environment matrix.
  * Output: None.
  */
-void show_environment(struct Agent *agent);
+void show_environment(Ambient* ambient);
 
 
 char move_randomly();
